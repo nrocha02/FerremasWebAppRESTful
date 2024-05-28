@@ -11,8 +11,8 @@ public class Venta {
     @Id
     private int id_venta;
     private Date fecha;
-    private String id_empleado; // Cambiado a String para almacenar el ID del empleado
-    private String id_producto; // Cambiado a String para almacenar el ID del producto
+    private String id_empleado;
+    private String id_producto;
     private int cantidad;
     private double monto_total;
 

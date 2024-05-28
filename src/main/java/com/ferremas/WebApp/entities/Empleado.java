@@ -10,8 +10,8 @@ public class Empleado {
     private String id_empleado;
     private String nombre;
     private String apellido;
-    private String puesto; // Cambiado a String para representar los diferentes roles
-    private String id_sucursal; // Cambiado para almacenar solo el ID de la sucursal
+    private String puesto;
+    private String id_sucursal;
 
     public String getId_empleado() {
         return id_empleado;

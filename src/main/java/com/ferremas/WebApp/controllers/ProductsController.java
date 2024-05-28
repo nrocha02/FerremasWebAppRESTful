@@ -20,13 +20,13 @@ public class ProductsController {
     public String viewProducts(Model model) {
         List<Producto> productos = productoRepository.findAll();
         model.addAttribute("productos", productos);
-        return "productos/products"; // Actualiza la ruta de la vista aquí
+        return "productos/products";
     }
 
     @GetMapping("/add")
     public String addProductForm(Model model) {
         model.addAttribute("producto", new Producto());
-        return "productos/add-product"; // Actualiza la ruta de la vista aquí
+        return "productos/add-product";
     }
 
     @PostMapping("/add")
@@ -39,7 +39,7 @@ public class ProductsController {
     public String editProductForm(@PathVariable("id") String id, Model model) {
         Producto producto = productoRepository.findById(id).orElse(null);
         model.addAttribute("producto", producto);
-        return "productos/edit-product"; // Actualiza la ruta de la vista aquí
+        return "productos/edit-product";
     }
 
     @PostMapping("/edit/{id}")
