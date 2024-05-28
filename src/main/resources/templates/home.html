@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://www.paypal.com/sdk/js?client-id=Aa6nfmXoE3KS-ufb4WAj_GDvVvytwDGORub3kGpRdv59xi2wCJCuRJ6LrDVHcw4B5lzSL0HtzirpCFXj"></script>
+  </head>
+  <body>
+    <div id="paypal-button-container"></div>
+    <script>
+      paypal
+        .Buttons({
+          createOrder: function (data, actions) {
+            return actions.order.create({
+              purchase_units: [
+                {
+                  amount: {
+                    value: "10.00", // Monto de la transacción
+                  },
+                },
+              ],
+            });
+          },
+          onApprove: function (data, actions) {
+            return actions.order.capture().then(function (details) {
+              alert(
+                "Transacción completada por " + details.payer.name.given_name
+              );
+              // Aquí puedes agregar lógica adicional, como redirigir a una página de confirmación.
+            });
+          },
+          onError: function (err) {
+            console.error(err);
+            // Manejo de errores
+          },
+        })
+        .render("#paypal-button-container");
+    </script>
+  </body>
+</html>
