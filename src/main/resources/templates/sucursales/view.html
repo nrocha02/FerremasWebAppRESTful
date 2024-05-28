@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Lista de Sucursales</title>
+  </head>
+  <body>
+    <h1>Lista de Sucursales</h1>
+    <a href="/sucursales/add">Agregar Nueva Sucursal</a>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Dirección</th>
+        <th>Acciones</th>
+      </tr>
+      <tr th:each="sucursal : ${sucursales}">
+        <td th:text="${sucursal.id_sucursal}">ID</td>
+        <td th:text="${sucursal.nombre}">Nombre</td>
+        <td th:text="${sucursal.direccion}">Dirección</td>
+        <td>
+          <a th:href="@{'/sucursales/edit/' + ${sucursal.id_sucursal}}"
+            >Editar</a
+          >
+          <a th:href="@{'/sucursales/delete/' + ${sucursal.id_sucursal}}"
+            >Eliminar</a
+          >
+        </td>
+      </tr>
+    </table>
+    <a href="/">Inicio</a>
+  </body>
+</html>

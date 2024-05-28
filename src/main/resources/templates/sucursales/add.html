@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Agregar Empleado</title>
+  </head>
+  <body>
+    <h1>Agregar Empleado</h1>
+    <form
+      action="#"
+      th:action="@{/empleados/add}"
+      th:object="${empleado}"
+      method="post"
+    >
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" th:field="*{nombre}" />
+      <label for="apellido">Apellido:</label>
+      <input type="text" id="apellido" th:field="*{apellido}" />
+      <label for="puesto">Puesto:</label>
+      <input type="text" id="puesto" th:field="*{puesto}" />
+      <label for="sucursal">Sucursal:</label>
+      <select id="sucursal" th:field="*{sucursal}" th:object="${sucursales}">
+        <option
+          th:each="sucursal : ${sucursales}"
+          th:value="${sucursal}"
+          th:text="${sucursal.nombre}"
+        >
+          Sucursal
+        </option>
+      </select>
+      <button type="submit">Añadir Empleado</button>
+    </form>
+    <a href="/empleados/view">Volver a la lista de empleados</a>
+  </body>
+</html>

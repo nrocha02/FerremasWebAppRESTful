@@ -1,8 +1,7 @@
 package com.ferremas.WebApp.repositories;
 
+import com.ferremas.WebApp.entities.Producto;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import com.ferremas.WebApp.entities.Producto;
-
-public interface ProductoRepository extends MongoRepository<Producto, String> {
+public interface ProductoRepository extends MongoRepository<Producto, String> { // Cambiado a Integer
 }

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
   <head>
-    <title>Edit Product</title>
+    <title>Editar Producto</title>
   </head>
   <body>
-    <h1>Edit Product</h1>
+    <h1>Editar Producto</h1>
     <form
       action="#"
       th:action="@{/productos/edit/{id}(id=${producto.id_producto})}"
@@ -12,14 +12,14 @@
       method="post"
     >
       <input type="hidden" th:field="*{id_producto}" />
-      <label for="nombre">Name:</label>
+      <label for="nombre">Nombre:</label>
       <input type="text" id="nombre" th:field="*{nombre}" />
-      <label for="precio">Price:</label>
+      <label for="precio">Precio:</label>
       <input type="number" id="precio" th:field="*{precio}" />
       <label for="stock">Stock:</label>
       <input type="number" id="stock" th:field="*{stock}" />
-      <button type="submit">Update Product</button>
+      <button type="submit">Actualizar producto</button>
     </form>
-    <a href="/productos/view">Back to Products List</a>
+    <a href="/productos/view">Volver a la lista de productos</a>
   </body>
 </html>
