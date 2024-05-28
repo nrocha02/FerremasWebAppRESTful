@@ -1,4 +1,4 @@
-package com.ferremas.entidades;
+package com.ferremas.WebApp.entities;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
