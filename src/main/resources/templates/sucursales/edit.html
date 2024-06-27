@@ -1,35 +1,24 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
   <head>
-    <title>Editar Empleado</title>
+    <title>Editar Sucursal</title>
   </head>
   <body>
-    <h1>Editar Empleado</h1>
+    <h1>Editar Sucursal</h1>
     <form
       action="#"
-      th:action="@{/empleados/edit/{id}(id=${empleado.id_empleado})}"
-      th:object="${empleado}"
+      th:action="@{/sucursales/edit/{id}(id=${sucursal.id_sucursal})}"
+      th:object="${sucursal}"
       method="post"
     >
-      <input type="hidden" th:field="*{id_empleado}" />
+      <input type="hidden" th:field="*{id_sucursal}" />
       <label for="nombre">Nombre:</label>
       <input type="text" id="nombre" th:field="*{nombre}" />
-      <label for="apellido">Apellido:</label>
-      <input type="text" id="apellido" th:field="*{apellido}" />
-      <label for="puesto">Puesto:</label>
-      <input type="text" id="puesto" th:field="*{puesto}" />
-      <label for="sucursal">Sucursal:</label>
-      <select id="sucursal" th:field="*{sucursal}" th:object="${sucursales}">
-        <option
-          th:each="sucursal : ${sucursales}"
-          th:value="${sucursal}"
-          th:text="${sucursal.nombre}"
-        >
-          Sucursal
-        </option>
+      <label for="direccion">Direccion:</label>
+      <input type="text" id="direccion" th:field="*{direccion}" />
       </select>
-      <button type="submit">Actualizar Empleado</button>
+      <button type="submit">Actualizar sucursal</button>
     </form>
-    <a href="/empleados/view">Volver a la lista de empleados</a>
+    <a href="/sucursals/view">Volver a la lista de sucursals</a>
   </body>
 </html>
