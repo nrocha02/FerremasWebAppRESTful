@@ -1,5 +1,7 @@
 package com.ferremas.WebApp.repositories;
 
-public interface VentaRepository {
+import com.ferremas.WebApp.entities.Venta;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
+public interface VentaRepository extends MongoRepository<Venta, String> {
 }

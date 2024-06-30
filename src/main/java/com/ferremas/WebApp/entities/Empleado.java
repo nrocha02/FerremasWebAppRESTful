@@ -1,6 +1,7 @@
 package com.ferremas.WebApp.entities;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "empleado")
@@ -11,7 +12,9 @@ public class Empleado {
     private String nombre;
     private String apellido;
     private String puesto;
-    private String id_sucursal;
+
+    @DBRef
+    private Sucursal nom_sucursal;
 
     public String getId_empleado() {
         return id_empleado;
@@ -45,11 +48,12 @@ public class Empleado {
         this.puesto = puesto;
     }
 
-    public String getId_sucursal() {
-        return id_sucursal;
+    public Sucursal getNom_sucursal() {
+        return nom_sucursal;
     }
 
-    public void setId_sucursal(String id_sucursal) {
-        this.id_sucursal = id_sucursal;
+    public void setNom_sucursal(Sucursal nom_sucursal) {
+        this.nom_sucursal = nom_sucursal;
     }
+
 }

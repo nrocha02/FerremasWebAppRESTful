@@ -1,50 +1,45 @@
 package com.ferremas.WebApp.entities;
 
-import java.util.Date;
-
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "venta")
 public class Venta {
 
     @Id
-    private int id_venta;
-    private Date fecha;
-    private String id_empleado;
-    private String id_producto;
+    private String id_venta;
+
+    @DBRef
+    private Empleado id_empleado;
+
+    @DBRef
+    private Producto id_producto;
+
     private int cantidad;
     private double monto_total;
 
-    public int getId_venta() {
+    public String getId_venta() {
         return id_venta;
     }
 
-    public void setId_venta(int id_venta) {
+    public void setId_venta(String id_venta) {
         this.id_venta = id_venta;
     }
 
-    public Date getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
-
-    public String getId_empleado() {
+    public Empleado getId_empleado() {
         return id_empleado;
     }
 
-    public void setId_empleado(String id_empleado) {
+    public void setId_empleado(Empleado id_empleado) {
         this.id_empleado = id_empleado;
     }
 
-    public String getId_producto() {
+    public Producto getId_producto() {
         return id_producto;
     }
 
-    public void setId_producto(String id_producto) {
+    public void setId_producto(Producto id_producto) {
         this.id_producto = id_producto;
     }
 

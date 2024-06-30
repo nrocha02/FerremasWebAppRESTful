@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Ver Ventas</title>
+  </head>
+  <body>
+    <h1>Ventas</h1>
+    <a href="/ventas/add">Agregar Venta</a>
+    <table>
+      <thead>
+        <tr>
+          <th>ID Venta</th>
+          <th>Empleado</th>
+          <th>Producto</th>
+          <th>Cantidad</th>
+          <th>Monto Total</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="venta : ${ventas}">
+          <td th:text="${venta.id_venta}"></td>
+          <td
+            th:text="${venta.id_empleado.nombre} + ' ' + ${venta.id_empleado.apellido}"
+          ></td>
+          <td th:text="${venta.id_producto.nombre}"></td>
+          <td th:text="${venta.cantidad}"></td>
+          <td
+            th:text="${#numbers.formatDecimal(venta.monto_total, 1, 'POINT', 2, 'COMMA')}"
+          ></td>
+          <td>
+            <a th:href="@{/ventas/edit/{id}(id=${venta.id_venta})}">Editar</a>
+            <a th:href="@{/ventas/delete/{id}(id=${venta.id_venta})}"
+              >Eliminar</a
+            >
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <a href="/">Inicio</a>
+  </body>
+</html>

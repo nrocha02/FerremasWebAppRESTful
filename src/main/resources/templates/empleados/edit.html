@@ -18,8 +18,14 @@
       <input type="text" id="apellido" th:field="*{apellido}" />
       <label for="puesto">Puesto:</label>
       <input type="text" id="puesto" th:field="*{puesto}" />
-      <label for="id_sucursal">ID de Sucursal:</label>
-      <input type="text" id="id_sucursal" th:field="*{id_sucursal}" />
+      <label for="nom_sucursal">Sucursal:</label>
+      <select id="nom_sucursal" th:field="*{nom_sucursal.id_sucursal}">
+        <option
+          th:each="sucursal : ${sucursales}"
+          th:value="${sucursal.id_sucursal}"
+          th:text="${sucursal.nombre}"
+        ></option>
+      </select>
       <button type="submit">Actualizar Empleado</button>
     </form>
     <a href="/empleados/view">Volver a la lista de empleados</a>

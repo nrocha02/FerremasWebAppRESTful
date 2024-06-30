@@ -20,7 +20,7 @@
         <td th:text="${empleado.nombre}">Nombre</td>
         <td th:text="${empleado.apellido}">Apellido</td>
         <td th:text="${empleado.puesto}">Puesto</td>
-        <td th:text="${empleado.id_sucursal}">Sucursal</td>
+        <td th:text="${empleado.nom_sucursal.nombre}">Sucursal</td>
         <td>
           <a th:href="@{'/empleados/edit/' + ${empleado.id_empleado}}"
             >Editar</a

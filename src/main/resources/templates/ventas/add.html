@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Agregar Venta</title>
+  </head>
+  <body>
+    <h1>Agregar Venta</h1>
+    <form
+      action="#"
+      th:action="@{/ventas/add}"
+      th:object="${venta}"
+      method="post"
+    >
+      <label for="empleado">Empleado:</label>
+      <select id="empleado" th:field="*{id_empleado.id_empleado}">
+        <option
+          th:each="empleado : ${empleados}"
+          th:value="${empleado.id_empleado}"
+          th:text="${empleado.nombre} + ' ' + ${empleado.apellido}"
+        ></option>
+      </select>
+      <label for="producto">Producto:</label>
+      <select id="producto" th:field="*{id_producto.id_producto}">
+        <option
+          th:each="producto : ${productos}"
+          th:value="${producto.id_producto}"
+          th:text="${producto.nombre}"
+        ></option>
+      </select>
+      <label for="cantidad">Cantidad:</label>
+      <input type="number" id="cantidad" th:field="*{cantidad}" />
+      <label for="monto_total">Monto Total:</label>
+      <input type="text" id="monto_total" th:field="*{monto_total}" />
+      <button type="submit">Añadir Venta</button>
+    </form>
+    <a href="/ventas/view">Volver a la lista de ventas</a>
+  </body>
+</html>
